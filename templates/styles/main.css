@@ -1,0 +1,56 @@
+#container {
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+#logo {
+	float: right;
+}
+
+#headline > span {
+	position: relative;
+	top: -4px;
+	margin-left: 10px;
+}
+
+#invoice-meta h4,
+.uk-table th {
+	font-size: .875rem;
+	text-transform: uppercase;
+	color: #999;
+	letter-spacing: 1px;
+}
+
+#invoice-meta h4 {
+	border-bottom: 1px solid #ddd;
+	margin: 0 0 10px 0;
+	padding-bottom: 10px;
+}
+
+#invoice-meta p {
+	margin: 0 0 20px 0;
+}
+
+#content tr.separate,
+#content tr:first-child {
+	border-color: #999;
+}
+
+td:last-child,
+th:last-child,
+#line-items td:nth-last-child(2),
+#line-items th:nth-last-child(2) {
+	text-align: right;
+}
+
+@media print {
+	#topnav {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#logo {
+		float: none;
+	}
+}
