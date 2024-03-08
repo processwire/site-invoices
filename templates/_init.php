@@ -20,6 +20,6 @@
 
 if(!user()->isLoggedin() && page()->id != config()->http404PageID) {
 	if(!in_array(page()->template->name, [ 'home', 'invoice' ])) {
-		session()->redirect(url()->root);
+		session()->redirect(urls()->root);
 	}
 }
