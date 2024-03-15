@@ -7,7 +7,7 @@
  * number of files needed for translation, and because several
  * labels are used in more than one place. 
  * 
- * To use: call `label('invoice')` which would return the translation
+ * To use: call `_('invoice')` which would return the translation
  * for 'invoice', as an example. 
  *
  */
@@ -54,6 +54,7 @@ class Labels extends Wire {
 			case 'total': return $this->_('Total');
 			case 'total due': return $this->_('Total due');
 			case 'unit': return $this->_('Unit');
+			case 'upon receipt': return $this->_('Upon receipt');
 			case 'view email': return $this->_('View email version');
 		}
 	}

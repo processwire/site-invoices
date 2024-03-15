@@ -86,7 +86,8 @@ class InvoicePage extends Page {
 	/**
 	 * Get due date (timestamp)
 	 * 
-	 * @return int|false
+	 * @param bool $formatted Get as formatted date string? (default=false)
+	 * @return int|false|string Returns unix timestamp, formatted date string, or false on error
 	 * 
 	 */
 	public function getDueDate($formatted = false) {
@@ -94,7 +95,7 @@ class InvoicePage extends Page {
 		$dayPage = $this->invoice_days; 
 		if(!$dayPage->id) return false;
 		$days = $dayPage->qty;
-		if(!$days) return $this->_('Upon receipt');
+		if(!$days) return $formatted ? _('upon receipt') : time();
 		$dueDate = $invoiceDate + ($days * 86400);
 		if($formatted) {
 			$format = $this->wire()->fields->get('date')->get('dateOutputFormat');
@@ -108,7 +109,7 @@ class InvoicePage extends Page {
 	 * 
 	 * Returns negative days if payment is past due
 	 * 
-	 * @return int|false
+	 * @return int|false Returns days remaining or false on error
 	 * 
 	 */
 	public function getDaysRemaining() {

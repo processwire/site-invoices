@@ -1,11 +1,9 @@
 /**
  * JS for ProcessPageEdit when editing an 'invoice' page
  * 
- * This file is loaded by the /site/templates/_admin-invoice.php file
- * 
  */
 
-function InvoicePageEdit(options) {
+function InvoiceEdit(options) {
 	
 	var settings = {
 		currencySymbol: '$',
@@ -56,9 +54,6 @@ function InvoicePageEdit(options) {
 		});
 		
 		total = subtotal - payments;
-		console.log('total=' + total);
-		console.log('subtotal=' + subtotal);
-		console.log('payments=' + payments);
 		$('#invoice-subtotal').text(formatPrice(subtotal));
 		$('#invoice-payments').text(formatPrice(payments));
 		$('#invoice-total').text(formatPrice(total));
@@ -126,5 +121,3 @@ function InvoicePageEdit(options) {
 	
 	init();
 }
-
-$(document).ready(InvoicePageEdit);

@@ -40,7 +40,7 @@ $total = 0.0;
 		<tr class="separate">
 			<td colspan="2">
 				<a href="<?=newInvoiceUrl()?>">
-					<span uk-icon="icon: plus-circle"></span>
+					<?=icon('plus-circle')?>
 					<?=_('new')?>
 				</a>
 			</td>

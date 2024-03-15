@@ -5,7 +5,7 @@
  * 
  * This file is included by admin.php file when the page loaded in the 
  * editor is an InvoicePage. This file adds various hooks to the page
- * editor and also adds the /site/templates/scripts/invoice-admin.js file. 
+ * editor and also adds the /site/templates/admin/invoice-edit.js file. 
  * 
  */
 
@@ -45,7 +45,7 @@ $wire->addHookAfter('InputfieldRepeater(name=invoice_items)::render', function(H
 		'currencySymbol' => $currency['symbol'],
 		'currencyCode' => $currency['code']
 	]);
-	$jsUrl = urls()->templates . 'scripts/invoice-admin.js';
+	$jsUrl = urls()->templates . 'admin/invoice-edit.js';
 	$event->return .= "
 		<div class='uk-grid-small uk-margin-small uk-text-muted' uk-grid>
 			<div class='uk-width-expand' uk-leader>" . _('subtotal') . "</div>
@@ -60,12 +60,7 @@ $wire->addHookAfter('InputfieldRepeater(name=invoice_items)::render', function(H
 			<div id='invoice-total'></div>
 		</div>
 		<script src='$jsUrl'></script>
-		<script>
-			$(function() { 
-				// call function from invoice-admin.js file
-				InvoicePageEdit($jsSettings) 
-			});
-		</script>
+		<script>$(function() { InvoiceEdit($jsSettings) });</script>
 	";
 });
 

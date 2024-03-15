@@ -21,13 +21,14 @@
 /**
  * Add custom hooks when editing InvoicePage
  *
- * See /site/templates/parts/invoice-admin.php
+ * See /site/templates/admin/invoice-edit.php
  *
  */
 $wire->addHookAfter('ProcessPageEdit::loadPage', function(HookEvent $event) use($wire) {
-	$page = $event->return;
+	$page = $event->return; 
 	if($page instanceof InvoicePage) {
-		include(__DIR__ . '/parts/invoice-admin.php');
+		// note: invoice-edit.php expects $page and $wire API vars
+		include('./admin/invoice-edit.php');
 	}
 });
 
